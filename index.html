@@ -812,17 +812,40 @@ details ul {
   const btnSiguiente = document.getElementById("btnSiguiente");
 
   function show(index) {
-    sections.forEach(s => s.classList.remove("active"));
-    if (sections[index]) sections[index].classList.add("active");
+    sections.forEach((s, i) => {
+      s.classList.toggle("active", i === index);
+    });
 
     btnAnterior.style.display = (index === 0) ? "none" : "inline-block";
     btnSiguiente.style.display = (index === sections.length - 1) ? "none" : "inline-block";
 
     const progreso = ((index + 1) / sections.length) * 100;
     document.getElementById("barraProgreso").style.width = progreso + "%";
+
+    // Elimina advertencia si se retrocede
+    const advertencia = document.getElementById("advertencia-check");
+    if (advertencia) advertencia.remove();
   }
 
   function nextSection() {
+    // Verifica si estamos en la sección 13 (índice 12)
+    if (current === 12) {
+      const checkboxes = sections[current].querySelectorAll('input[type="checkbox"]');
+      const todosMarcados = Array.from(checkboxes).every(cb => cb.checked);
+
+      if (!todosMarcados) {
+        if (!document.getElementById("advertencia-check")) {
+          const advertencia = document.createElement("p");
+          advertencia.id = "advertencia-check";
+          advertencia.textContent = "⚠️ Por favor marca todos los ítems antes de continuar.";
+          advertencia.style.color = "red";
+          advertencia.style.marginTop = "15px";
+          sections[current].appendChild(advertencia);
+        }
+        return; // No avanza
+      }
+    }
+
     if (current < sections.length - 1) {
       current++;
       show(current);
@@ -840,6 +863,3 @@ details ul {
 </script>
 </body>
 </html>
-
-
-
