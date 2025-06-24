@@ -647,48 +647,27 @@ details ul {
   <p>Durante tu visita, podrías enfrentar situaciones donde se requiere actuar rápidamente. Conocer los tipos de extintores disponibles es clave para tu seguridad y la de todos.</p>
   <p><strong>Recuerda:</strong> Nunca uses un extintor sin estar seguro del tipo de fuego que enfrentas. Si no estás entrenado o si dudas, busca a un brigadista.</p>
 
-  <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+  <div class="comportamiento-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
 
-    <!-- Extintor ABC (Amarillo) -->
-    <div class="flip-card" style="width: 220px; perspective: 1000px; border-left: 6px solid #f9c922; border-radius: 8px;">
-      <div class="flip-card-inner" style="transition: transform 0.8s; transform-style: preserve-3d; position: relative; height: 250px;">
-        <div class="flip-card-front" style="background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); backface-visibility: hidden; position: absolute; width: 100%; height: 100%; text-align: center;">
-          <img src="https://i.postimg.cc/Bny0bGmN/EXTINTOR-TIPO-ABC.jpg" alt="Extintor ABC" style="height: 70px; margin-bottom: 10px;">
-          <h4 style="color: #444;">Extintor ABC</h4>
-          <p>Clase A, B y C</p>
-        </div>
-        <div class="flip-card-back" style="background-color: #fdf8e2; padding: 20px; border-radius: 8px; backface-visibility: hidden; transform: rotateY(180deg); position: absolute; width: 100%; height: 100%;">
-          <p>✔ Fuegos con papel, madera, aceite o electricidad.<br>✔ Es el más versátil.<br>✔ No se debe usar en espacios confinados sin ventilación.</p>
-        </div>
-      </div>
+    <div class="card" style="border-left: 6px solid #f9c922;">
+      <h4>🟡 Extintor ABC</h4>
+      <p><strong>Clase:</strong> A, B y C</p>
+      <p>✔ Papel, madera, aceites, electricidad.<br>✔ Muy versátil.<br>❌ No usar en espacios sin ventilación.</p>
+      <img src="https://i.postimg.cc/Bny0bGmN/EXTINTOR-TIPO-ABC.jpg" alt="Extintor ABC" style="height: 70px; margin-top: 10px;">
     </div>
 
-    <!-- Extintor CO₂ (Rojo) -->
-    <div class="flip-card" style="width: 220px; perspective: 1000px; border-left: 6px solid #e60000; border-radius: 8px;">
-      <div class="flip-card-inner" style="transition: transform 0.8s; transform-style: preserve-3d; position: relative; height: 250px;">
-        <div class="flip-card-front" style="background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); backface-visibility: hidden; position: absolute; width: 100%; height: 100%; text-align: center;">
-          <img src="https://i.postimg.cc/V6fDcJXh/TIPO-CO2.png" alt="Extintor CO2" style="height: 70px; margin-bottom: 10px;">
-          <h4 style="color: #444;">Extintor CO₂</h4>
-          <p>Clase C</p>
-        </div>
-        <div class="flip-card-back" style="background-color: #ffe5e5; padding: 20px; border-radius: 8px; backface-visibility: hidden; transform: rotateY(180deg); position: absolute; width: 100%; height: 100%;">
-          <p>✔ Fuegos eléctricos (tableros, computadores, motores).<br>✔ No deja residuos.<br>✔ No usar en espacios sin ventilación.</p>
-        </div>
-      </div>
+    <div class="card" style="border-left: 6px solid #e60000;">
+      <h4>🔴 Extintor CO₂</h4>
+      <p><strong>Clase:</strong> C</p>
+      <p>✔ Equipos eléctricos y tableros.<br>✔ No deja residuos.<br>❌ No usar sin ventilación.</p>
+      <img src="https://i.postimg.cc/V6fDcJXh/TIPO-CO2.png" alt="Extintor CO₂" style="height: 70px; margin-top: 10px;">
     </div>
 
-    <!-- Extintor de Agua (Verde) -->
-    <div class="flip-card" style="width: 220px; perspective: 1000px; border-left: 6px solid #27ae60; border-radius: 8px;">
-      <div class="flip-card-inner" style="transition: transform 0.8s; transform-style: preserve-3d; position: relative; height: 250px;">
-        <div class="flip-card-front" style="background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); backface-visibility: hidden; position: absolute; width: 100%; height: 100%; text-align: center;">
-          <img src="https://i.postimg.cc/28HnJH5n/Extintor-tipo-A.png" alt="Extintor de Agua" style="height: 70px; margin-bottom: 10px;">
-          <h4 style="color: #444;">Extintor de Agua</h4>
-          <p>Clase A</p>
-        </div>
-        <div class="flip-card-back" style="background-color: #e5f9ed; padding: 20px; border-radius: 8px; backface-visibility: hidden; transform: rotateY(180deg); position: absolute; width: 100%; height: 100%;">
-          <p>✔ Fuegos con madera, cartón o telas.<br>❌ Nunca usar en electricidad ni líquidos inflamables.<br>✔ Enfría el material en combustión.</p>
-        </div>
-      </div>
+    <div class="card" style="border-left: 6px solid #27ae60;">
+      <h4>🟢 Extintor de Agua</h4>
+      <p><strong>Clase:</strong> A</p>
+      <p>✔ Combustibles sólidos (madera, cartón, tela).<br>❌ Nunca en fuegos eléctricos o líquidos inflamables.<br>✔ Enfría el material.</p>
+      <img src="https://i.postimg.cc/28HnJH5n/Extintor-tipo-A.png" alt="Extintor Agua" style="height: 70px; margin-top: 10px;">
     </div>
 
   </div>
