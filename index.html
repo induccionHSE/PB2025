@@ -963,17 +963,18 @@ details ul {
   <p>Antes de iniciar tu visita, asegúrate de cumplir con los siguientes puntos:</p>
 
   <ul style="list-style: none; padding-left: 0;">
-    <li><label><input type="checkbox" /> ✅ Recibiste la charla de inducción completa.</label></li>
-    <li><label><input type="checkbox" /> ✅ Usas el EPP completo requerido para el área a visitar.</label></li>
-    <li><label><input type="checkbox" /> ✅ Conoces los puntos de encuentro y rutas de evacuación.</label></li>
-    <li><label><input type="checkbox" /> ✅ Entiendes las tareas de alto riesgo y sus restricciones.</label></li>
-    <li><label><input type="checkbox" /> ✅ No portar celular mientras estés en áreas operativas.</label></li>
-    <li><label><input type="checkbox" /> ✅ Cumples las normas de seguridad vial y comportamiento.</label></li>
-    <li><label><input type="checkbox" /> ✅ Tienes el Permiso de Trabajo o autorización, si aplica.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ Recibiste la charla de inducción completa.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ Usas el EPP completo requerido para el área a visitar.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ Conoces los puntos de encuentro y rutas de evacuación.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ Entiendes las tareas de alto riesgo y sus restricciones.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ No portar celular mientras estés en áreas operativas.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ Cumples las normas de seguridad vial y comportamiento.</label></li>
+    <li><label><input type="checkbox" name="confirmacion[]" /> ✅ Tienes el Permiso de Trabajo o autorización, si aplica.</label></li>
   </ul>
 
   <p style="margin-top: 20px;"><strong>📌 Recuerda:</strong> Tu seguridad y la de todos depende de tu actitud y cumplimiento. ¡Gracias por contribuir a un entorno seguro! 🙌</p>
 </section>
+
   <section>
 <div class="img-superior-derecha">
     <img src="https://i.postimg.cc/CLSFNhyN/LOGO-PBI-CASCO-BLANCO.png" alt="Personaje PBI con EPP">
@@ -1035,15 +1036,19 @@ details ul {
     const progreso = ((index + 1) / sections.length) * 100;
     document.getElementById("barraProgreso").style.width = progreso + "%";
 
-    // Elimina advertencia si se retrocede
+    // Elimina advertencia previa si existe
     const advertencia = document.getElementById("advertencia-check");
     if (advertencia) advertencia.remove();
   }
 
   function nextSection() {
-    // Verifica si estamos en la sección 13 (índice 12)
-    if (current === 12) {
-      const checkboxes = sections[current].querySelectorAll('input[type="checkbox"]');
+    // Validación en la sección 13
+    const section13 = Array.from(sections).find(sec => 
+      sec.querySelector('h2')?.textContent.includes("13. RECOMENDACIONES")
+    );
+
+    if (sections[current] === section13) {
+      const checkboxes = section13.querySelectorAll('input[type="checkbox"]');
       const todosMarcados = Array.from(checkboxes).every(cb => cb.checked);
 
       if (!todosMarcados) {
@@ -1053,9 +1058,9 @@ details ul {
           advertencia.textContent = "⚠️ Por favor marca todos los ítems antes de continuar.";
           advertencia.style.color = "red";
           advertencia.style.marginTop = "15px";
-          sections[current].appendChild(advertencia);
+          section13.appendChild(advertencia);
         }
-        return; // No avanza
+        return; // No avanzar
       }
     }
 
@@ -1074,5 +1079,6 @@ details ul {
 
   document.addEventListener("DOMContentLoaded", () => show(current));
 </script>
+
 </body>
 </html>
